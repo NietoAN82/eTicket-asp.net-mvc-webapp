@@ -1,4 +1,5 @@
 using eTicket_webapp.Data;
+using eTicket_webapp.Data.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace eTicket_webapp
@@ -13,6 +14,8 @@ namespace eTicket_webapp
             builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
             builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
+            //Services configuration
+            builder.Services.AddScoped<IActorsService, ActorsService>();
 
             builder.Services.AddControllersWithViews();
 
